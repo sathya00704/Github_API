@@ -44,8 +44,9 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
     final size = MediaQuery.of(context).size;
     var textStyle = TextStyle(fontFamily: 'Lato', fontSize: 18);
     final f = new DateFormat.yMMMMd("en_US");
-    //print('User: ${user.user}');
+    print('User: ${user.user.username}');
     return Scaffold(
+        backgroundColor: Colors.indigo[100],
         appBar: AppBar(
           title: Text(widget.username, style: TextStyle(color: Colors.white),),
           centerTitle: true,
@@ -92,11 +93,15 @@ class _UserDetailsScreenState extends State<UserDetailsScreen> {
               ),
             ),
             ElevatedButton(
-                onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> RepoScreen(user.user.username)));},
-                child: Text('Check Repositories')
+              onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> RepoScreen(user.user.username)));},
+              child: Text('Check Repositories', style: TextStyle(color: Colors.white)),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black,
+              ),
             ),
           ],
-        )
+        ),
+
     );
   }
 }

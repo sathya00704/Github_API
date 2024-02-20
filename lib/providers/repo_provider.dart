@@ -58,7 +58,7 @@ class RepoProvider extends ChangeNotifier {
         });
 
         _repoList = newList;
-        _repoList.sort((a,b)=>b.created_date.compareTo(a.created_date));
+        _repoList.sort((a, b) => b.created_date?.compareTo(a.created_date ?? DateTime(0)) ?? 0);
         print('Repositories loaded successfully');
         notifyListeners();
 
